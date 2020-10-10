@@ -32,13 +32,13 @@ function App() {
     <div className={classes.root}>
       <div className={classes.calculadora}>
         <Pantalla pantalla={input} />
-        <Botones boton="C" ancho={320} setInput={setInput} />
-        <Botones boton="%" ancho={80} setInput={setInput} />
+        <Botones boton="C" ancho={320} input={input} setInput={setInput} />
+        <Botones boton="%" ancho={80} input={input} setInput={setInput} />
         {botones.map((boton) => (
-          <Botones boton={boton} ancho={87} setInput={setInput} />
+          <Botones boton={boton} ancho={87} input={input} setInput={setInput} />
         ))}
-        <Botones boton="0" ancho={320} setInput={setInput} />
-        <Botones boton="=" ancho={80} setInput={setInput} />
+        <Botones boton="0" ancho={320} input={input} setInput={setInput} />
+        <Botones boton="=" ancho={80} input={input} setInput={setInput} />
       </div>
     </div>
   );

@@ -1,13 +1,16 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import {Calculadora} from "../../auxiliares/Calculadora";
 
 interface Props {
   boton: string;
   ancho: number;
   setInput: (value: string | ((prevInput: string) => string)) => void;
+  input: string| undefined;
 }
 
 const Botones: React.FC<Props> = (props) => {
+  const calculadora = Calculadora;
   const useStyles = makeStyles((theme) => ({
     boton: {
       display: "inline-block",
@@ -30,7 +33,14 @@ const Botones: React.FC<Props> = (props) => {
         props.setInput("");
         break;
       case "=":
-        console.log("hacer");
+        console.log(calculadora);
+        props.setInput(calculadora.igual(props.input).toString())
+        break;
+      case "x":
+      case "-":
+      case "+":
+      case "/":
+        props.setInput((prevInput) => prevInput + " " + props.boton + " ");
         break;
       default:
         props.setInput((prevInput) => prevInput + props.boton);
