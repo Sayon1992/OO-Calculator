@@ -1,6 +1,5 @@
 export const Calculadora = new (function(this:any){
   let resultado = 0;
-  let anteriorResultado = 0;
   this.valores = ["+", "-", "/", "*"];
   this.esNumero = function(n:any) {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -68,7 +67,6 @@ export const Calculadora = new (function(this:any){
     if(input.length === 0) return "";
 
     let array = this.formateo(input);
-    anteriorResultado = resultado;
 
     if(array.length === 0){
       resultado = 0;
